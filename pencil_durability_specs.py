@@ -6,12 +6,13 @@ import paper as pap
 
 class PencilDurabilityTests(unittest.TestCase): 
 
-	def setUp(self):
-		self.pencil = pen.Pencil()
+	# def setUp(self):
+	# 	self.pencil = pen.Pencil()
 
 	def testwhenYouWriteWithAPencilItReturnsThatWordOnThePaper(self):
+		pencil = pen.Pencil(5)
 		paper = pap.Paper("")
-		self.assertEqual("TestingPencil", self.pencil.write("TestingPencil", paper))
+		self.assertEqual("TestingPencil", pencil.write("TestingPencil", paper))
 
 	def testwhenYouInitializeAPaperWithWordsItHasContainsThoseWords(self):
 		paper = pap.Paper("She")
@@ -19,8 +20,15 @@ class PencilDurabilityTests(unittest.TestCase):
 
 	def testwhenYouWriteOnAPaperItAppenDsThoseWordsToTheAlreadyWrittenWords(self):
 		paper = pap.Paper("She")
-		self.pencil.write(" has", paper)
-		self.assertEqual("She has", paper.display())	
+		pencil = pen.Pencil(5)
+		pencil.write(" has", paper)
+		self.assertEqual("She has", paper.display())
+
+	def testWhenYouWriteAnUppercaseLetterPointDegradationDecreasesByTwo(self):
+		pencil = pen.Pencil(3)
+		pencil.point_degradation("L")
+		self.assertEqual(1, pencil.displayPointTotal())	
+
 
 
 if __name__ == '__main__':
