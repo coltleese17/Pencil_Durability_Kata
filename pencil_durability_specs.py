@@ -24,16 +24,20 @@ class PencilDurabilityTests(unittest.TestCase):
 		pencil.write(" has", paper)
 		self.assertEqual("She has", paper.display())
 
-	def testWhenYouWriteAnUppercaseLetterPointDegradationDecreasesByTwo(self):
+	def testWhenYouWriteAnUppercaseLetterPointDurabilityDecreasesByTwo(self):
 		pencil = pen.Pencil(3)
 		pencil.point_degradation("L")
 		self.assertEqual(1, pencil.displayPointTotal())
 
-	def testWhenYouWriteTwoUppercaseLettersPointDegradationDecreasesByFour(self):
+	def testWhenYouWriteTwoUppercaseLettersPointDurabilityDecreasesByFour(self):
 		pencil = pen.Pencil(5)
 		pencil.point_degradation("LL")
 		self.assertEqual(1, pencil.displayPointTotal())			
 
+	def testWhenYouWriteALowercaseLetterPointDurabilityDecreasesByOne(self):
+		pencil = pen.Pencil(3)
+		pencil.point_degradation("a")
+		self.assertEqual(2, pencil.displayPointTotal())	
 
 
 if __name__ == '__main__':

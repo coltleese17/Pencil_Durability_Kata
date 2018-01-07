@@ -14,8 +14,12 @@ class Pencil:
 
 	def point_degradation(self,input):
 		for c in input:
+			if (self.point_durability <= 0):
+				return input
 			if c.isupper():
 				self.point_durability -= 2
+			if c.islower():
+				self.point_durability -= 1	
 
 
 	def displayPointTotal(self):
