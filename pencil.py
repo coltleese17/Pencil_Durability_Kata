@@ -29,6 +29,6 @@ class Pencil:
 		return self.point_durability
 
 	def sharpen(self):
-		self.point_durability = initial_length				
+		self.point_durability = self.initial_durability				
 						
 

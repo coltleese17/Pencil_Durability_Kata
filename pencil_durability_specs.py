@@ -57,7 +57,16 @@ class PencilDurabilityTests(unittest.TestCase):
 	def testIfNoDurabilityReturnWhitespace(self):
 		pencil = pen.Pencil(0)
 		paper = pap.Paper("")
-		self.assertEqual("", pencil.write("Text", paper))	
+		self.assertEqual("", pencil.write("Text", paper))
+
+	def testWhenSharpeningPencilItReturnsToItsOriginalDurability(self):
+		pencil = pen.Pencil(1000)
+		pencil.point_degradation("LMWEFASDFfer")
+		pencil.sharpen()
+		self.assertEqual(1000, pencil.displayPointTotal())
+
+
+
 
 
 if __name__ == '__main__':
