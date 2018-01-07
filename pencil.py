@@ -5,6 +5,7 @@ class Pencil:
 
 	def __init__(self, point_durability):
 		self.point_durability = point_durability
+		self.initial_durability = point_durability
 
 
 
@@ -25,6 +26,9 @@ class Pencil:
 
 
 	def displayPointTotal(self):
-		return self.point_durability			
+		return self.point_durability
+
+	def sharpen(self):
+		self.point_durability = initial_length				
 						
 

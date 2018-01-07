@@ -54,6 +54,11 @@ class PencilDurabilityTests(unittest.TestCase):
 		paper = pap.Paper("")
 		self.assertEqual("Tex", pencil.write("Text", paper))
 
+	def testIfNoDurabilityReturnWhitespace(self):
+		pencil = pen.Pencil(0)
+		paper = pap.Paper("")
+		self.assertEqual("", pencil.write("Text", paper))	
+
 
 if __name__ == '__main__':
 	unittest.main()
