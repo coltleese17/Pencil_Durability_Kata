@@ -9,8 +9,9 @@ class Pencil:
 
 
 	def write(self, input, paper):
-		words_written = paper.write(input);
-		return words_written
+		input_after_degradation = self.point_degradation(input)
+		words_on_page = paper.write(input_after_degradation);
+		return words_on_page
 
 	def point_degradation(self,input):
 		for i, c in enumerate(input):
@@ -19,7 +20,8 @@ class Pencil:
 			if c.isupper():
 				self.point_durability -= 2
 			if c.islower():
-				self.point_durability -= 1		
+				self.point_durability -= 1
+		return input				
 
 
 	def displayPointTotal(self):

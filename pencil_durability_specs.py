@@ -10,7 +10,7 @@ class PencilDurabilityTests(unittest.TestCase):
 	# 	self.pencil = pen.Pencil()
 
 	def testwhenYouWriteWithAPencilItReturnsThatWordOnThePaper(self):
-		pencil = pen.Pencil(5)
+		pencil = pen.Pencil(1000)
 		paper = pap.Paper("")
 		self.assertEqual("TestingPencil", pencil.write("TestingPencil", paper))
 
@@ -20,7 +20,7 @@ class PencilDurabilityTests(unittest.TestCase):
 
 	def testwhenYouWriteOnAPaperItAppenDsThoseWordsToTheAlreadyWrittenWords(self):
 		paper = pap.Paper("She")
-		pencil = pen.Pencil(5)
+		pencil = pen.Pencil(10)
 		pencil.write(" has", paper)
 		self.assertEqual("She has", paper.display())
 
@@ -49,7 +49,10 @@ class PencilDurabilityTests(unittest.TestCase):
 		# returned_word_after_degradation = pencil.point_degradation("Text")
 		self.assertEqual("Tex", pencil.point_degradation("Text"))
 
-
+	def testPointDurabilityBehaviorWhenWriting(self):
+		pencil = pen.Pencil(4)
+		paper = pap.Paper("")
+		self.assertEqual("Tex", pencil.write("Text", paper))
 
 
 if __name__ == '__main__':
