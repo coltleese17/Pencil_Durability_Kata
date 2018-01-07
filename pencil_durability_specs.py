@@ -37,7 +37,12 @@ class PencilDurabilityTests(unittest.TestCase):
 	def testWhenYouWriteALowercaseLetterPointDurabilityDecreasesByOne(self):
 		pencil = pen.Pencil(3)
 		pencil.point_degradation("a")
-		self.assertEqual(2, pencil.displayPointTotal())	
+		self.assertEqual(2, pencil.displayPointTotal())
+
+	def testWhenYouWriteALowercaseLetterPointDurabilityDecreasesByTwo(self):
+		pencil = pen.Pencil(3)
+		pencil.point_degradation("aa")
+		self.assertEqual(1, pencil.displayPointTotal())			
 
 
 if __name__ == '__main__':
